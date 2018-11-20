@@ -2,14 +2,17 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+// Styles
+import Styles from './styles.m.css';
+
 // Components
-import { Title, Spinner } from '../components';
+import { Title, Spinner, TaskList } from '../components';
 // Actions
 import { uiActions } from '../bus/ui/actions';
 
 const mapStateToProps = (state) => {
     return {
-        ui:   state.ui,
+        ui: state.ui,
     };
 };
 const mapDispatchToProps = (dispatch) => {
@@ -25,14 +28,16 @@ const mapDispatchToProps = (dispatch) => {
 export default class Main extends Component {
     componentDidMount () {
         const { actions } = this.props;
+
         actions.startSpinning();
         setTimeout(actions.stopSpinning, 5000);
     }
-    render() {
+    render () {
         return (
-            <div>
+            <div className = { Styles.main }>
                 <Spinner />
                 <Title />
+                <TaskList />
             </div>
         );
     }

@@ -1390,7 +1390,7 @@ babel-plugin-istanbul@4.1.4:
   dependencies:
     find-up "^2.1.0"
     istanbul-lib-instrument "^1.7.2"
-    test-exclude "^4.1.1"
+    tasks-exclude "^4.1.1"
 
 babel-plugin-istanbul@^4.1.6:
   version "4.1.6"
@@ -1399,7 +1399,7 @@ babel-plugin-istanbul@^4.1.6:
     babel-plugin-syntax-object-rest-spread "^6.13.0"
     find-up "^2.1.0"
     istanbul-lib-instrument "^1.10.1"
-    test-exclude "^4.2.1"
+    tasks-exclude "^4.2.1"
 
 babel-plugin-jest-hoist@^23.2.0:
   version "23.2.0"
@@ -3133,7 +3133,7 @@ enzyme-adapter-react-16@^1.0.1:
     object.values "^1.0.4"
     prop-types "^15.6.2"
     react-is "^16.6.1"
-    react-test-renderer "^16.0.0-0"
+    react-tasks-renderer "^16.0.0-0"
 
 enzyme-adapter-utils@^1.9.0:
   version "1.9.0"
@@ -8698,7 +8698,7 @@ react-router@^4.2.0, react-router@^4.3.1:
 
 react-test-renderer@^16.0.0-0:
   version "16.6.3"
-  resolved "https://registry.yarnpkg.com/react-test-renderer/-/react-test-renderer-16.6.3.tgz#5f3a1a7d5c3379d46f7052b848b4b72e47c89f38"
+  resolved "https://registry.yarnpkg.com/react-tasks-renderer/-/react-tasks-renderer-16.6.3.tgz#5f3a1a7d5c3379d46f7052b848b4b72e47c89f38"
   dependencies:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
@@ -8836,7 +8836,7 @@ redux-logger@^3.0.6:
 
 redux-saga-test-plan@~3.7.0:
   version "3.7.0"
-  resolved "https://registry.yarnpkg.com/redux-saga-test-plan/-/redux-saga-test-plan-3.7.0.tgz#c8f513b1c6e13eef526a6b8a2e9076b6f26f5698"
+  resolved "https://registry.yarnpkg.com/redux-saga-tasks-plan/-/redux-saga-tasks-plan-3.7.0.tgz#c8f513b1c6e13eef526a6b8a2e9076b6f26f5698"
   dependencies:
     core-js "^2.4.1"
     fsm-iterator "^1.1.0"
@@ -10160,7 +10160,7 @@ term-size@^1.2.0:
 
 test-exclude@^4.1.1, test-exclude@^4.2.1:
   version "4.2.3"
-  resolved "https://registry.yarnpkg.com/test-exclude/-/test-exclude-4.2.3.tgz#a9a5e64474e4398339245a0a769ad7c2f4a97c20"
+  resolved "https://registry.yarnpkg.com/tasks-exclude/-/tasks-exclude-4.2.3.tgz#a9a5e64474e4398339245a0a769ad7c2f4a97c20"
   dependencies:
     arrify "^1.0.1"
     micromatch "^2.3.11"
