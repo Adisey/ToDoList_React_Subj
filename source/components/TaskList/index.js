@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 // Instruments
 // Components
+import { Title } from '../../components';
+
 //import NewTask from '../NewTask';
 import Task from '../Task';
 // Styles
@@ -48,13 +50,14 @@ export default class TaskList extends Component {
                     id = { task.get('id') }
                     key = { task.get('id') }
                     name = { task.get('name') }
-                    { ...task } // todo: Вспоминть зачем это
                 />
             ));
 
         return (
-            <section className = { Styles.scheduler }>
+            <section className = { Styles.tasksList }>
                 <main>
+                    <Title />
+
                     <section>
                         <ul>
                             {tasksList}

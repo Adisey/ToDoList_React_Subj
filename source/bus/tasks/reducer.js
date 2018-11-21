@@ -14,14 +14,14 @@ const initalState = fromJS({
         {
             id:            1, // v4()
             name:          'Задача № 1',
-            complete:      0,
+            completed:     false,
             executionTime: 0,
             position:      1,
         },
         {
             id:            2,
             name:          'Задача № 2',
-            complete:      1,
+            completed:     true,
             executionTime: 10000,
             position:      2,
         }
@@ -39,7 +39,7 @@ export const tasksReducer = (state = initalState, action) => {
         case type.COMPLETE_TASK:
             return state.set('tasksList', state.get('tasksList').map((task) => {
                 if (task.get('id') === action.payload.id) {
-                    task = task.set('completed', !task.get('completed'));
+                    task = task.set('completed', action.payload.completed);
                 }
 
                 return task;

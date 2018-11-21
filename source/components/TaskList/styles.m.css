@@ -3,7 +3,7 @@
 @import '../../theme/breakpoints';
 */
 
-.scheduler {
+.tasksList {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -15,13 +15,13 @@
         width: 100%;
         max-width: 950px;
         height: 100%;
-        padding: 50px 85px;
-        background-color: #808080;
+        //padding: 50px 85px;
+        background-color: #f8f7b6;
         border-radius: 10px;
         box-shadow: 6px 6px 14px #fff;
 
         & section {
-            margin-bottom: 31px;
+            margin-bottom: 5px;
 
             & ul {
                 min-height: 370px;
@@ -43,7 +43,7 @@
             padding: 7px;
 
             & section {
-                margin-bottom: 31px;
+                margin-bottom: 5px;
             }
 
         }

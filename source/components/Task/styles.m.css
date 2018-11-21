@@ -1,5 +1,3 @@
-/*@import '../../theme/breakpoints';*/
-
 .task {
     position: relative;
     display: flex;
@@ -7,10 +5,9 @@
     justify-content: space-between;
     height: 61px;
     margin-bottom: 13px;
-    padding: 0 20px;
-    background-color: var(--paletteColor2);
-    border-radius: 5px;
-    box-shadow: 6px 6px 14px var(--rgbaColor1);
+    padding: 0 10px;
+    box-shadow: 6px 6px 14px rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid black;
     font-size: 20px;
     font-weight: 400;
 
@@ -21,7 +18,7 @@
     & .content {
         display: flex;
         align-items: center;
-        width: 85%;
+        width: 100%;
 
         & .toggleTaskCompletedState {
             margin-right: 20px;
@@ -36,12 +33,12 @@
             display: flex;
             flex-direction: column;
 
-            & input[type='text'] {
+            & p{
                 width: 100%;
                 border-color: transparent;
 
                 &:not([disabled]) {
-                    border-color: var(--paletteColor3);
+                    border-color: #e9ebee;
                 }
             }
             & div {
@@ -82,12 +79,12 @@
 }
 
 .completed {
-    background-color: var(--paletteColor8);
-    color: var(--paletteColor9);
+    background-color: #b0e2ad;
+    color: #616770;
 
     & .content {
         & input[type='text'] {
-            background-color: var(--paletteColor8);
+            background-color: #282828;
         }
     }
 }

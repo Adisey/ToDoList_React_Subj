@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import Styles from './styles.m.css';
 
 // Components
-import { Title, Spinner, TaskList } from '../components';
+import { Spinner, TaskList } from '../components';
 // Actions
 import { uiActions } from '../bus/ui/actions';
 
@@ -28,15 +28,14 @@ const mapDispatchToProps = (dispatch) => {
 export default class Main extends Component {
     componentDidMount () {
         const { actions } = this.props;
-
+        // Делаем вид что обращаемя к серверу :)
         actions.startSpinning();
-        setTimeout(actions.stopSpinning, 5000);
+        setTimeout(actions.stopSpinning, 1000);
     }
     render () {
         return (
             <div className = { Styles.main }>
                 <Spinner />
-                <Title />
                 <TaskList />
             </div>
         );
