@@ -12,6 +12,17 @@ export const tasksActions ={
         };
     },
 
+    newTask: () => {
+        return {
+            type:    type.NEW_TASK,
+        };
+    },
+
+    cancelNewTask: () => {
+        return {
+            type:    type.CANCEL_NEW_TASK,
+        };
+    },
     createTask: (task) => {
         return {
             type:    type.CREATE_TASK,

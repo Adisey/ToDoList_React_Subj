@@ -6,7 +6,6 @@
     flex-direction: row;
     Justify-content: center;
     align-items: center;
-    border-bottom: 4px double black;
     & h1{
         color: #000000;
         font-size: 22pt;

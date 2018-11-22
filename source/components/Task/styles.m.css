@@ -10,7 +10,6 @@
     border-bottom: 2px solid black;
     font-size: 20px;
     font-weight: 400;
-
     & svg {
         cursor: pointer;
     }
@@ -33,15 +32,16 @@
             display: flex;
             flex-direction: column;
 
-            & p{
+            & div {
                 width: 100%;
                 border-color: transparent;
+                padding: 10px;
 
                 &:not([disabled]) {
                     border-color: #e9ebee;
                 }
             }
-            & div {
+            & span {
                 height: 20px;
                 color: red;
                 font-size: 15px;

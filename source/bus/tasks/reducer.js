@@ -10,17 +10,18 @@ const initalState = fromJS({
         id:           1,
         startRunning: new Date(),
     },
+    newTask:   false,
     tasksList: [
         {
             id:            1, // v4()
-            name:          'Задача № 1',
+            message:          'Задача № 1',
             completed:     false,
             executionTime: 0,
             position:      1,
         },
         {
             id:            2,
-            name:          'Задача № 2',
+            message:          'Задача № 2',
             completed:     true,
             executionTime: 10000,
             position:      2,
@@ -32,6 +33,12 @@ export const tasksReducer = (state = initalState, action) => {
     switch (action.type) {
         case type.FILL_TASKS:
             return state.set('tasksList', fromJS(action.payload));
+
+        case type.CANCEL_NEW_TASK:
+            return state.set('newTask', false);
+
+        case type.NEW_TASK:
+            return state.set('newTask', true);
 
         case type.REMOVE_TASK:
             return state.set('tasksList', state.get('tasksList').filter((task) => task.get('id') !== action.payload));

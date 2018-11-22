@@ -1,21 +1,102 @@
-.invalidInput {
-    .transition2:hover {
-        transition: 3s;
+.main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #3d8ef1;
+    height: 61px;
+    margin-bottom: 13px;
+    padding: 10px 10px 0;
+    box-shadow: 6px 6px 14px rgba(0, 0, 0, 0.2);
+    border-bottom: 2px solid black;
+    font-size: 20px;
+    font-weight: 400;
+    & form {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        & input {
+            width: 350px;
+            height: 35px;
+            margin: 0 5px 20px;
+            padding: 8px 10px;
+            border: 1px solid #dddfe2;
+            border-radius: 7px;
+            outline: none;
+            color: #090C14;
+            font-size: 17px;
+            transition: border 0.3s ease, box-shadow 0.3s ease;
+
+            &[type='checkbox'] {
+                width: auto;
+                margin: 0 10px;
+            }
+
+            &[type='file'] {
+                border: 1px solid black;
+                margin: 20px 0;
+                cursor: pointer;
+            }
+
+            &:focus {
+                border-color: #365899;
+                box-shadow: 0 5px 6px -6px;
+            }
+        }
+
+        & .invalidInput {
+            border: 1px solid red;
+
+            &:focus {
+                border: 1px solid crimson;
+                box-shadow: 0 5px 6px -6px #f40009;
+            }
+        }
+
+        & .rememberMe {
+            display: flex;
+            align-items: center;
+            margin: 0 0 20px;
+            color: #282828;
+            cursor: pointer;
+            user-select: none;
+            font-size: 14px;
+        }
+
+        & button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 0 16px;
+            margin: 0 5px 20px;
+            outline: 0;
+            border-radius: 7px;
+            border: none;
+            height: 34px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: 600;
+            transition: background-color 0.2s ease-out, border-color 0.2s ease-out, box-shadow 0.3s ease;
+        }
+
+
     }
 
-    &:hover {
-        box-shadow: inset 0 0 3px 2px #f40009;
-    }
 
-    &:focus {
-        box-shadow: inset 0 0 3px 1px #f40009;
-    }
+}
+.cancelButton {
+    color: red;
 }
 
+
 .hintError {
-    height: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 15px;
     color: red;
     font-size: 15px;
-    margin: 0 0 10px;
+    margin: -20px 0 0;
 }
 

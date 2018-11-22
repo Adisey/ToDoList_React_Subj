@@ -2,6 +2,8 @@ export const type = {
     // Sync
     FILL_TASKS:          'FILL_TASKS',
     CREATE_TASK:         'CREATE_TASK',
+    NEW_TASK:            'NEW_TASK',
+    CANCEL_NEW_TASK:     'CANCEL_NEW_TASK',
     REMOVE_TASK:         'REMOVE_TASK',
     COMPLETE_TASK:       'COMPLETE_TASK',
     START_RUN_TASK:      'START_RUN_TASK',

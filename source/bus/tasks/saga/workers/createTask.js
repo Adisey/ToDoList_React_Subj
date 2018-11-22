@@ -18,7 +18,7 @@ export function* createTask ({ payload: taskName }) {
 
         const task =  {
             "id":        v4(),
-            "name":      taskName,
+            "message":      taskName,
             "completed": false,
         };
 

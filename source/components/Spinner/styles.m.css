@@ -11,8 +11,8 @@
     position: fixed;
     width: 30px;
     height: 30px;
-    border: 3px solid var(--paletteColor6);
-    border-top: 4px solid var(--paletteColor3);
+    border: 3px solid #4267b2;
+    border-top: 4px solid #e9ebee;
     border-radius: 100%;
     top: 60px;
     right: 25px;

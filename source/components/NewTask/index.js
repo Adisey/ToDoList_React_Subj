@@ -1,14 +1,41 @@
 // Core
 import React, { Component, createRef } from 'react';
-import { Formik, Form, Field } from 'formik';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 // Instruments
-import { newTask } from '../forms/shapes';
+import { Formik, Form, Field } from 'formik';
+import { newTask } from './shapes';
 import cx from 'classnames';
 //Styles
 import Styles from './styles.m.css';
+// Actions
+import { tasksActions } from '../../bus/tasks/actions';
+
+const mapStateToProps = (state) => {
+    return {
+        tasks: state.tasks,
+    };
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        actions: bindActionCreators({ ...tasksActions }, dispatch),
+    };
+};
+
+@connect(
+    mapStateToProps,
+    mapDispatchToProps
+)
 
 export default class NewTask extends Component {
     formikForm = createRef();
+
+    _cancelNewTask = () => {
+        const { actions } = this.props;
+
+        actions.cancelNewTask();
+    };
 
     _submitForm = (formData, actions) => {
         this._createTask(formData);
@@ -19,7 +46,10 @@ export default class NewTask extends Component {
         if (!message) {
             return null;
         }
-        this.props.actions.createTaskAsync(message);
+        const { actions } = this.props;
+        actions.createTaskAsync(message);
+        actions.cancelNewTask();
+
     };
 
     _submitFormOnEnter = (event) => {
@@ -31,6 +61,7 @@ export default class NewTask extends Component {
     };
 
     render () {
+        console.log(` -> "this.props" -> `, this.props);
 
         return (
             <Formik
@@ -41,8 +72,8 @@ export default class NewTask extends Component {
                     const messageStyle = cx({ [Styles.invalidInput]: !isValid && touched.message && errors.message });
 
                     return (
-                        <div>
-                            <Form>
+                        <div className = { Styles.main }>
+                            <Form >
                                 <Field
                                     className = { messageStyle }
                                     name = 'message'
@@ -50,10 +81,15 @@ export default class NewTask extends Component {
                                     type = 'text'
                                     onKeyPress = { this._submitFormOnEnter }
                                 />
-                                <button type = 'submit'>Добавить задачу</button>
+                                <button
+                                    type = 'submit'>Создать</button>
+                                <button
+                                    type = ''
+                                    onClick = { this._cancelNewTask }
+                                    className = { Styles.cancelButton }>Отмена</button>
                             </Form>
                             <div className = { Styles.hintError }>
-                                {errors.message}
+                                <div>{errors.message}</div>
                             </div>
                         </div>
                     );

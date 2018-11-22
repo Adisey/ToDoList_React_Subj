@@ -5,12 +5,12 @@ import { takeEvery, all, call } from 'redux-saga/effects';
 import { type } from '../types';
 
 // Workers
-import { createTask, fillTasks, removeTask, favoriteTask, completeTask, changeTask } from './workers';
+import { createTask, fillTasks, removeTask, completeTask, changeTask } from './workers';
 
 function* watcherFillTasks () {
     yield takeEvery(type.FETCH_TASKS_ASYNC, fillTasks);
 }
-function* watcherCrateTask () {
+function* watcherCreateTask () {
     yield takeEvery(type.CREATE_TASK_ASYNC, createTask);
 }
 function* watcherRemoveTask () {
@@ -25,7 +25,7 @@ function* watcherChangeTask () {
 export function* watcherTasks () {
     yield all([
         call(watcherFillTasks),
-        call(watcherCrateTask),
+        call(watcherCreateTask),
         call(watcherRemoveTask),
         call(watcherCompleteTask),
         call(watcherChangeTask)

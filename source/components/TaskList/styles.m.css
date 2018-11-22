@@ -12,11 +12,10 @@
     min-height: 100vh;
 
     & main {
-        width: 100%;
-        max-width: 950px;
-        height: 100%;
-        //padding: 50px 85px;
         background-color: #f8f7b6;
+        width: 100%;
+        max-width: 650px;
+        height: 100%;
         border-radius: 10px;
         box-shadow: 6px 6px 14px #fff;
 
@@ -25,12 +24,8 @@
 
             & ul {
                 min-height: 370px;
-                max-height: 370px;
-                overflow-y: scroll;
-
-                &::-webkit-scrollbar {
-                    display: none;
-                }
+                max-height: 600px;
+                overflow-y: auto;
             }
         }
 
@@ -48,11 +43,19 @@
 
         }
     }
-
     @media (width <= 380px) {
-        & main {
-            padding: 5px;
-        }
     }
 }
 
+.tasksListTitle {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 4px double black;
+    & div {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px;
+    }
+
+}

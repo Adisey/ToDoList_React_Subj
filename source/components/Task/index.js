@@ -17,9 +17,9 @@ export default class Task extends PureComponent {
     };
 
     _completeTask = () => {
-        const { id, name, completed, actions } = this.props;
+        const { id, message, completed, actions } = this.props;
 
-        actions.completeTaskAsync({ id, name, completed });
+        actions.completeTaskAsync({ id, message, completed });
     };
     _startRunTask = () => {
         const { id, actions } = this.props;
@@ -33,7 +33,7 @@ export default class Task extends PureComponent {
     };
 
     render () {
-        const { name, completed } = this.props;
+        const { message, completed } = this.props;
 
         const styles = cx(Styles.task, {
             [Styles.completed]: completed,
@@ -45,22 +45,22 @@ export default class Task extends PureComponent {
                     <Checkbox
                         checked = { completed }
                         className = { Styles.toggleTaskCompletedState }
-                        color1 = '#363636'
+                        color1 = '#3B8EF3'
                         color2 = '#fff'
                         title = { completed ? 'Отменить завершение задачи': 'Заверить задачу' }
                         onClick = { this._completeTask }
                     />
                     <div>
-                        <p>
-                            { name }
-                        </p>
+                        <div>
+                            { message }
+                        </div>
                     </div>
                     <Remove
                         inlineBlock
                         className = { Styles.removeTask }
-                        color1 = '#3B8EF3'
-                        color2 = '#000'
-                        title = 'Удалить'
+                        color1 = '#0000FF'
+                        color2 = '#3B8EF3'
+                        title = 'Удалить задачу.'
                         onClick = { this._removeTask }
                     />
 
