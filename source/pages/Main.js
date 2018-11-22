@@ -27,10 +27,10 @@ const mapDispatchToProps = (dispatch) => {
 )
 export default class Main extends Component {
     componentDidMount () {
-        const { actions } = this.props;
+        //const { actions } = this.props;
         // Делаем вид что обращаемя к серверу :)
-        actions.startSpinning();
-        setTimeout(actions.stopSpinning, 1000);
+        //actions.startSpinning();
+        //setTimeout(actions.stopSpinning, 1000);
     }
     render () {
         return (

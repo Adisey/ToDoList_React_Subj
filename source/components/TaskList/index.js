@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 // Instruments
 // Components
-import { Title } from '../../components';
+import { Title } from '../';
 import NewTask from '../NewTask';
 import Task from '../Task';
 import Add from '../../theme/assets/Add';
@@ -52,17 +52,18 @@ export default class TaskList extends Component {
     render () {
         const { actions, tasks } = this.props;
         const newTask = tasks.get('newTask');
-
-        console.log(` -> "newTask" -> `, newTask);
+        const runningTask = tasks.get('runningTask')? tasks.get('runningTask').toJS() : undefined;
         const tasksList = tasks
             .get('tasksList')
             .map((task) => (
                 <Task
                     actions = { actions }
                     completed = { task.get('completed') }
+                    executionTime = { task.get('executionTime')? task.get('executionTime'): 0 }
                     id = { task.get('id') }
                     key = { task.get('id') }
                     message = { task.get('message') }
+                    runningTask = { runningTask }
                 />
             ));
 
@@ -73,8 +74,8 @@ export default class TaskList extends Component {
                         <Add
                             inlineBlock
                             color1 = { newTask ? '#FF0000' : '#0000FF' }
-                            color2 = { newTask ? '#ff4f3f' : '#3B8EF3'}
-                            title = { newTask ?  'Отменить создание.' :'Создать новую задачу.'}
+                            color2 = { newTask ? '#ff4f3f' : '#3B8EF3' }
+                            title = { newTask ? 'Отменить создание.' :'Создать новую задачу.' }
                             onClick = { newTask ? this._cancelNewTask : this._newTask }
                         />
                         <Title />

@@ -7,21 +7,21 @@ import { type } from './types';
 
 const initalState = fromJS({
     runningTask: {
-        id:           1,
-        startRunning: new Date(),
+        id:           '1',
+        startRunning: Number(new Date()),
     },
     newTask:   false,
     tasksList: [
         {
-            id:            1, // v4()
-            message:          'Задача № 1',
+            id:            '1', // v4()
+            message:       'Задача № 1',
             completed:     false,
             executionTime: 0,
             position:      1,
         },
         {
-            id:            2,
-            message:          'Задача № 2',
+            id:            '2',
+            message:       'Задача № 2',
             completed:     true,
             executionTime: 10000,
             position:      2,
@@ -56,9 +56,24 @@ export const tasksReducer = (state = initalState, action) => {
             return state.set('tasksList', state.get('tasksList').unshift(fromJS(action.payload)));
 
         case type.START_RUN_TASK:
-            return state;
+            return state.set('runningTask', fromJS({ id: action.payload, startRunning: Number(new Date()) }));
 
         case type.END_RUN_TASK:
+            if (state.getIn(['runningTask', 'id'])) {
+                const runningTaskId = state.getIn(['runningTask', 'id']);
+                const executionTime = Number(new Date()) - state.getIn(['runningTask', 'startRunning']);
+                const endRunTaskNewState = state.set('tasksList', state.get('tasksList').map((task) => {
+                    if (task.get('id') === runningTaskId) {
+                        task = task.set('executionTime', (task.get('executionTime')? task.get('executionTime'): 0)+executionTime);
+                    }
+
+                    return task;
+                }));
+
+                return endRunTaskNewState.delete('runningTask');
+
+            }
+
             return state;
 
         default:

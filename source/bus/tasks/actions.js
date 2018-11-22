@@ -50,10 +50,9 @@ export const tasksActions ={
         };
 
     },
-    endRunTask: (id) => {
+    endRunTask: () => {
         return {
             type:    type.END_RUN_TASK,
-            payload: id,
         };
 
     },
