@@ -50,28 +50,27 @@ export default class Task extends PureComponent {
         // Возможно остановить(true) таймер если: есть запущенные задачи, и это задача с этми ID.
         // Или запустить (false) если: нет зарущенных.
 
-        const styles = cx(Styles.task, {
+        const stylesTask = cx(Styles.task, {
             [Styles.completed]: completed,
         });
 
+        const stylesRun = cx({ [Styles.runTimer]: !notAvailableTimer && abilityTimerStopOrStart });
+
         return (
-            <li className = { styles }>
+            <li className = { stylesTask }>
                 <div className = { Styles.content }>
                     <Checkbox
                         checked = { completed }
-                        className = { Styles.toggleTaskCompletedState } /// ???????
+                        className = { Styles.toggleTaskCompletedState }
                         color1 = '#3B8EF3'
                         color2 = '#fff'
                         title = { completed ? 'Отменить завершение задачи': 'Заверить задачу' }
                         onClick = { this._completeTask }
                     />
                     <div>
-                        <div>
-                            { message }
-                        </div>
+                        { message }
                     </div>
-                    <p />
-                    <p title = { `Время выполнения` }>
+                    <p className = { stylesRun } title = { `Время выполнения` }>
                         {!notAvailableTimer && abilityTimerStopOrStart
                             ? <ShowPassedTime
                                 interval = { 1 }
@@ -80,24 +79,22 @@ export default class Task extends PureComponent {
                             /> : msToHMS(executionTime)
                         }
                     </p>
-                    <span>
-                        <TimerIcon
-                            inlineBlock
-                            color1 = { notAvailableTimer? '#777777' : abilityTimerStopOrStart? '#FF0000' : '#00FF00' }
-                            color2 = { notAvailableTimer? '#777777' : abilityTimerStopOrStart? '#FF0000' : '#00FF00' }
-                            title = { notAvailableTimer? 'нет возможности запустить' : abilityTimerStopOrStart? 'Стоп' : 'Старт' }
-                            onClick = { notAvailableTimer? null : abilityTimerStopOrStart? this._endRunTask : this._startRunTask }
-                        />
-                    </span>
-                    <span>
-                        <Remove
-                            inlineBlock
-                            color1 = '#0000FF'
-                            color2 = '#3B8EF3'
-                            title = 'Удалить задачу.'
-                            onClick = { this._removeTask }
-                        />
-                    </span>
+                    <TimerIcon
+                        inlineBlock
+                        className = { Styles.toggleTaskIcon }
+                        color1 = { notAvailableTimer? '#777777' : abilityTimerStopOrStart? '#FF0000' : '#0000FF' }
+                        color2 = { notAvailableTimer? '#777777' : abilityTimerStopOrStart? '#FF0000' : '#3B8EF3' }
+                        title = { notAvailableTimer? 'нет возможности запустить' : abilityTimerStopOrStart? 'Стоп' : 'Старт' }
+                        onClick = { notAvailableTimer? null : abilityTimerStopOrStart? this._endRunTask : this._startRunTask }
+                    />
+                    <Remove
+                        inlineBlock
+                        className = { Styles.toggleTaskIcon }
+                        color1 = '#0000FF'
+                        color2 = '#3B8EF3'
+                        title = 'Удалить задачу.'
+                        onClick = { this._removeTask }
+                    />
                 </div>
             </li>
         );

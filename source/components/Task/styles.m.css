@@ -20,7 +20,11 @@
         width: 100%;
 
         & .toggleTaskCompletedState {
-            margin-right: 20px;
+            margin: 20px;
+        }
+
+        & .toggleTaskIcon {
+            margin: 10px;
         }
 
         & span {
@@ -47,18 +51,6 @@
                 font-size: 15px;
                 margin: 0;
             }
-
-        }
-
-
-    }
-
-    & .actions {
-        min-width: 100px;
-
-        & .toggleTaskFavoriteState,
-        & .updateTaskMessageOnClick {
-            margin-right: 20px;
         }
     }
 
@@ -71,10 +63,6 @@
             width: 95%;
         }
 
-        & .actions {
-            margin-bottom: 7px;
-            align-self: flex-end;
-        }
     }
 }
 
@@ -89,5 +77,8 @@
     }
 }
 
+.runTimer {
+    color: red;
+}
 
 
