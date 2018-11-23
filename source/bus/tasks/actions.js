@@ -11,6 +11,18 @@ export const tasksActions ={
             payload: tasks,
         };
     },
+    makeOrderList: () => {
+        return {
+            type:    type.MAKE_ORDER_LIST,
+        };
+    },
+
+    newOrderList: (orderList) => {
+        return {
+            type:    type.NEW_ORDER_LIST,
+            payload: orderList,
+        };
+    },
 
     newTask: () => {
         return {

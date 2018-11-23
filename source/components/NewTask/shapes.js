@@ -2,13 +2,13 @@
 import { object, string } from 'yup';
 // Instruments
 
-const required  = 'Описание задачи не может быть пустым!';
+const required  =  'Описание задачи не может быть пустым!';
 const min5      =  'Описание задачи не может меньше 5-ти символов!';
 const max50     =  'Описание задачи не может быть более 50 символов!';
 
 export const newTask = {
     shape: {
-        message: 'Task',
+        message: 'Задача № ',
     },
     schema: object().shape({
         message: string()

@@ -9,6 +9,8 @@ export const type = {
     START_RUN_TASK:      'START_RUN_TASK',
     END_RUN_TASK:        'END_RUN_TASK',
     CHANGE_TASK:         'CHANGE_TASK',
+    MAKE_ORDER_LIST:     'MAKE_ORDER_LIST',
+    NEW_ORDER_LIST:      'NEW_ORDER_LIST',
     // Asyn
     FETCH_TASKS_ASYNC:   'FETCH_TASKS_ASYNC',
     CREATE_TASK_ASYNC:   'CREATE_TASK_ASYNC',

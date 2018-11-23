@@ -15,6 +15,7 @@ export function* removeTask ({ payload: taskId }) {
         //     throw new Error(message);
         // }
         yield put(tasksActions.removeTask(taskId));
+        yield put(tasksActions.makeOrderList());
     } catch (error) {
         yield put(uiActions.emitError(error, 'removeTask ${error}'));
     } finally {

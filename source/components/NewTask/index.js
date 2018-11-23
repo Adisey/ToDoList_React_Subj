@@ -27,7 +27,6 @@ const mapDispatchToProps = (dispatch) => {
     mapStateToProps,
     mapDispatchToProps
 )
-
 export default class NewTask extends Component {
     formikForm = createRef();
 
@@ -47,9 +46,9 @@ export default class NewTask extends Component {
             return null;
         }
         const { actions } = this.props;
+
         actions.createTaskAsync(message);
         actions.cancelNewTask();
-
     };
 
     _submitFormOnEnter = (event) => {

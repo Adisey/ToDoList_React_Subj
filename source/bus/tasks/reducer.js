@@ -17,20 +17,69 @@ const initalState = fromJS({
             message:       'Задача № 1',
             completed:     false,
             executionTime: 0,
-            position:      1,
+            order:         3,
         },
         {
             id:            '2',
             message:       'Задача № 2',
             completed:     true,
             executionTime: 10000,
-            position:      2,
+            order:         2,
+        },
+        {
+            id:            '3',
+            message:       'Задача № 3',
+            completed:     false,
+            executionTime: 15000,
+            order:         1,
         }
     ],
 });
 
 export const tasksReducer = (state = initalState, action) => {
     switch (action.type) {
+        case type.MAKE_ORDER_LIST:
+            const orderList = [];
+            const taskJSarr = state.get('tasksList').toJS();
+
+            taskJSarr
+                .sort((a, b) => {
+                    if (a.order > b.order) {
+                        return 1;
+                    }
+                    if (a.order < b.order) {
+                        return -1;
+                    }
+                })
+                .map((task) => {
+                    orderList.push(task.id);
+                })
+            ;
+
+            return state.set('orderList', fromJS(orderList));
+
+        case type.NEW_ORDER_LIST:
+            // ToDo: Намучано сделано, нужно на досуге подумать как сделать элегантнее
+            if (action.payload) {
+                const newOrderList = action.payload;
+                const newOrderTaskObj = {};
+
+                state.get('tasksList').map((task) => {
+                    newOrderTaskObj[task.get('id')] = task;
+                });
+                let order = 0;
+                const newTaskList = newOrderList.map((index) => {
+                    order++;
+
+                    return newOrderTaskObj[index].set('order', order);
+                });
+                const newOrderListState = state.set('tasksList', List(newTaskList));
+
+                return newOrderListState.set('orderList', fromJS(newOrderList));
+            }
+
+            return state;
+
         case type.FILL_TASKS:
             return state.set('tasksList', fromJS(action.payload));
 
@@ -64,14 +113,13 @@ export const tasksReducer = (state = initalState, action) => {
                 const executionTime = Number(new Date()) - state.getIn(['runningTask', 'startRunning']);
                 const endRunTaskNewState = state.set('tasksList', state.get('tasksList').map((task) => {
                     if (task.get('id') === runningTaskId) {
-                        task = task.set('executionTime', (task.get('executionTime')? task.get('executionTime'): 0)+executionTime);
+                        task = task.set('executionTime', (task.get('executionTime') ? task.get('executionTime') : 0) + executionTime);
                     }
 
                     return task;
                 }));
 
                 return endRunTaskNewState.delete('runningTask');
-
             }
 
             return state;

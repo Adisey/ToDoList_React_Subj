@@ -6,7 +6,7 @@ import { bindActionCreators } from 'redux';
 import Styles from './styles.m.css';
 
 // Components
-import { Spinner, TaskList } from '../components';
+import { Spinner, TaskListDnD } from '../components';
 // Actions
 import { uiActions } from '../bus/ui/actions';
 
@@ -36,7 +36,7 @@ export default class Main extends Component {
         return (
             <div className = { Styles.main }>
                 <Spinner />
-                <TaskList />
+                <TaskListDnD />
             </div>
         );
     }

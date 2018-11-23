@@ -1,4 +1,5 @@
 .task {
+    background-color: #f5ff5c;
     position: relative;
     display: flex;
     align-items: center;
@@ -19,38 +20,12 @@
         align-items: center;
         width: 100%;
 
-        & .toggleTaskCompletedState {
-            margin: 20px;
-        }
-
         & .toggleTaskIcon {
-            margin: 10px;
+            margin: 0;
         }
 
         & span {
             margin: 10px;
-        }
-
-        & div {
-            width: 100%;
-            display: flex;
-            flex-direction: column;
-
-            & div {
-                width: 100%;
-                border-color: transparent;
-                padding: 10px;
-
-                &:not([disabled]) {
-                    border-color: #e9ebee;
-                }
-            }
-            & span {
-                height: 20px;
-                color: red;
-                font-size: 15px;
-                margin: 0;
-            }
         }
     }
 
@@ -62,7 +37,6 @@
         & .content {
             width: 95%;
         }
-
     }
 }
 
@@ -81,4 +55,14 @@
     color: red;
 }
 
+.buttonPlase {
+    padding: 12px;
+}
 
+
+.taskMessage {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+}

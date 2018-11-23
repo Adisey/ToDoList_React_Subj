@@ -53,16 +53,36 @@ export default class TaskList extends Component {
         const { actions, tasks } = this.props;
         const newTask = tasks.get('newTask');
         const runningTask = tasks.get('runningTask')? tasks.get('runningTask').toJS() : undefined;
-        const tasksList = tasks
-            .get('tasksList')
-            .map((task) => (
+        const taskJSarr = tasks.get('tasksList').toJS();
+        const tasksList = {};
+        const orderList = [];
+
+        taskJSarr.map((task) => {
+            tasksList[task.id] = task;
+        });
+
+        taskJSarr
+            .sort((a, b) => {
+                if (a.order > b.order) {
+                    return 1;
+                }
+                if (a.order < b.order) {
+                    return -1;
+                }
+            })
+            .map((task) => {
+                orderList.push(task.id);
+            })
+        ;
+        const tasksListJSX = orderList
+            .map((id) => (
                 <Task
                     actions = { actions }
-                    completed = { task.get('completed') }
-                    executionTime = { task.get('executionTime')? task.get('executionTime'): 0 }
-                    id = { task.get('id') }
-                    key = { task.get('id') }
-                    message = { task.get('message') }
+                    completed = { tasksList[id].completed }
+                    executionTime = { tasksList[id].executionTime ? tasksList[id].executionTime: 0 }
+                    id = { id }
+                    key = { id }
+                    message = { tasksList[id].message }
                     runningTask = { runningTask }
                 />
             ));
@@ -83,7 +103,7 @@ export default class TaskList extends Component {
                     <section>
                         <ul>
                             {newTask ? <NewTask /> : null}
-                            {tasksList}
+                            {tasksListJSX}
                         </ul>
                     </section>
                 </main>
