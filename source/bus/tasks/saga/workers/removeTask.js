@@ -8,12 +8,7 @@ import { uiActions } from '../../../ui/actions';
 export function* removeTask ({ payload: taskId }) {
     try {
         yield put(uiActions.startSpinning());
-        // Когда будет сервер
-        // const response = yield apply(api, api.task.remove, [taskId]);
-        //
-        // if (response.status !== 204) {
-        //     throw new Error(message);
-        // }
+        // Когда будет сервер сделать к нему обрашение
         yield put(tasksActions.removeTask(taskId));
         yield put(tasksActions.makeOrderList());
     } catch (error) {

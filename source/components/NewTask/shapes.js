@@ -8,7 +8,7 @@ const max50     =  'Описание задачи не может быть бо�
 
 export const newTask = {
     shape: {
-        message: 'Задача № ',
+        message: '',
     },
     schema: object().shape({
         message: string()

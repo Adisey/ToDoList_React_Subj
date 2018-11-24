@@ -60,7 +60,6 @@ export default class NewTask extends Component {
     };
 
     render () {
-        console.log(` -> "this.props" -> `, this.props);
 
         return (
             <Formik
@@ -83,7 +82,7 @@ export default class NewTask extends Component {
                                 <button
                                     type = 'submit'>Создать</button>
                                 <button
-                                    type = ''
+                                    type = 'button'
                                     onClick = { this._cancelNewTask }
                                     className = { Styles.cancelButton }>Отмена</button>
                             </Form>

@@ -11,7 +11,7 @@ export const type = {
     CHANGE_TASK:         'CHANGE_TASK',
     MAKE_ORDER_LIST:     'MAKE_ORDER_LIST',
     NEW_ORDER_LIST:      'NEW_ORDER_LIST',
-    // Asyn
+    // Asynс
     FETCH_TASKS_ASYNC:   'FETCH_TASKS_ASYNC',
     CREATE_TASK_ASYNC:   'CREATE_TASK_ASYNC',
     REMOVE_TASK_ASYNC:   'REMOVE_TASK_ASYNC',

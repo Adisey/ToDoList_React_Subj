@@ -1,8 +1,5 @@
 import { type } from "./types";
 
-// Instruments
-// import { api } from '../../REST/';
-
 export const tasksActions ={
     // Sync
     fillTasks: (tasks) => {

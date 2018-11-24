@@ -59,7 +59,7 @@ export const tasksReducer = (state = initalState, action) => {
             return state.set('orderList', fromJS(orderList));
 
         case type.NEW_ORDER_LIST:
-            // ToDo: Намучано сделано, нужно на досуге подумать как сделать элегантнее
+            // ToDo: Намучано, нужно на досуге подумать как сделать элегантнее
             if (action.payload) {
                 const newOrderList = action.payload;
                 const newOrderTaskObj = {};
